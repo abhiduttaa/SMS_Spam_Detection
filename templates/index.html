@@ -1,0 +1,395 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>SPAMX | AI Message Intelligence</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet"
+    href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+    <!-- Background effects -->
+    <div class="background-grid"></div>
+    <div class="orb orb-one"></div>
+    <div class="orb orb-two"></div>
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <a href="#" class="logo">
+            <span class="logo-icon">✳</span>
+            SPAM<span>X</span>
+        </a>
+
+        <div class="nav-links">
+            <a href="#home">Home</a>
+            <a href="#detector">Detector</a>
+            <a href="#features">Features</a>
+            <a href="#how-it-works">How it works</a>
+        </div>
+
+        <a href="#detector" class="nav-button">
+            Try Detector <span>↗</span>
+        </a>
+    </nav>
+
+
+    <!-- HERO SECTION -->
+    <section class="hero" id="home">
+
+        <div class="hero-content">
+
+            <div class="status-pill">
+                <span class="pulse-dot"></span>
+                INTELLIGENT MESSAGE SECURITY
+            </div>
+
+            <h1>
+                Don't let spam<br>
+                <span class="gradient-text">reach your world.</span>
+            </h1>
+
+            <p>
+                Experience intelligent SMS protection powered by
+                Machine Learning. Detect suspicious messages
+                and identify unwanted spam in seconds.
+            </p>
+
+            <div class="hero-buttons">
+                <a href="#detector" class="primary-button">
+                    Analyze a Message <span>→</span>
+                </a>
+
+                <a href="#how-it-works" class="secondary-button">
+                    Explore Technology
+                </a>
+            </div>
+
+            <div class="hero-stats">
+                <div>
+                    <h3>AI</h3>
+                    <p>Powered Detection</p>
+                </div>
+
+                <div>
+                    <h3>TF-IDF</h3>
+                    <p>Text Processing</p>
+                </div>
+
+                <div>
+                    <h3>ML</h3>
+                    <p>Naive Bayes Model</p>
+                </div>
+            </div>
+
+        </div>
+
+
+        <!-- HERO VISUAL -->
+        <div class="hero-visual">
+
+            <div class="orbit orbit-large"></div>
+            <div class="orbit orbit-small"></div>
+
+            <div class="security-card">
+
+                <div class="card-top">
+                    <span>SECURITY MONITOR</span>
+                    <span class="live">● LIVE</span>
+                </div>
+
+                <div class="shield">
+                    <div class="shield-inner">✳</div>
+                </div>
+
+                <h2>Message Intelligence</h2>
+
+                <p>Analyzing suspicious patterns</p>
+
+                <div class="scan-line"></div>
+
+                <div class="security-bottom">
+                    <span>THREAT DETECTION</span>
+                    <span>ACTIVE</span>
+                </div>
+
+            </div>
+
+            <div class="floating-tag tag-one">
+                <span>✓</span> Smart Detection
+            </div>
+
+            <div class="floating-tag tag-two">
+                <span>✦</span> AI Intelligence
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- DETECTOR SECTION -->
+    <section class="detector-section" id="detector">
+
+        <div class="section-heading">
+            <div class="section-label">THE INTELLIGENCE ENGINE</div>
+
+            <h2>
+                Your message.<br>
+                <span class="gradient-text">Our intelligence.</span>
+            </h2>
+
+            <p>
+                Paste your SMS below and let our trained
+                Machine Learning model analyze it.
+            </p>
+        </div>
+
+
+        <div class="detector-card">
+
+            <div class="detector-header">
+                <div>
+                    <span class="online-dot"></span>
+                    <span>SPAMX ANALYZER</span>
+                </div>
+
+                <span class="model-label">NAIVE BAYES MODEL</span>
+            </div>
+
+
+            <form method="POST" action="#detector">
+
+                <label for="message">ENTER YOUR MESSAGE</label>
+
+                <textarea
+                    id="message"
+                    name="message"
+                    placeholder="Example: Congratulations! You have won a free prize..."
+                    required>{{ message or '' }}</textarea>
+
+                <div class="input-info">
+                    <span>✦ Your message is processed by our ML model.</span>
+                    <span id="charCount">0 characters</span>
+                </div>
+
+                <button type="submit" class="analyze-button">
+                    <span>✳</span> Analyze Message <span>→</span>
+                </button>
+
+            </form>
+
+
+            {% if prediction == "SPAM" %}
+
+            <div class="result-box spam-result">
+                <div class="result-icon">⚠</div>
+                <div>
+                    <small>ANALYSIS COMPLETE</small>
+                    <h3>SPAM DETECTED</h3>
+                    <p>This message has been classified as suspicious.</p>
+                </div>
+                <span class="result-status">THREAT</span>
+            </div>
+
+            {% elif prediction == "HAM" %}
+
+            <div class="result-box ham-result">
+                <div class="result-icon">✓</div>
+                <div>
+                    <small>ANALYSIS COMPLETE</small>
+                    <h3>HAM DETECTED</h3>
+                    <p>This message has been classified as normal.</p>
+                </div>
+                <span class="result-status">SAFE</span>
+            </div>
+
+            {% endif %}
+
+        </div>
+
+    </section>
+
+
+    <!-- FEATURES -->
+    <section class="features-section" id="features">
+
+        <div class="section-heading">
+            <div class="section-label">BUILT FOR INTELLIGENCE</div>
+
+            <h2>
+                Smart technology.<br>
+                <span class="gradient-text">Simple protection.</span>
+            </h2>
+        </div>
+
+
+        <div class="features-grid">
+
+            <div class="feature-card">
+                <div class="feature-icon">✳</div>
+                <h3>Machine Learning</h3>
+                <p>
+                    Uses a trained Multinomial Naive Bayes
+                    classifier to identify spam messages.
+                </p>
+                <span class="feature-number">01 / INTELLIGENCE</span>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">⌘</div>
+                <h3>TF-IDF Processing</h3>
+                <p>
+                    Converts text messages into numerical
+                    features for machine learning predictions.
+                </p>
+                <span class="feature-number">02 / PROCESSING</span>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">◈</div>
+                <h3>Instant Analysis</h3>
+                <p>
+                    Submit your message and receive a
+                    prediction directly from the trained model.
+                </p>
+                <span class="feature-number">03 / DETECTION</span>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- HOW IT WORKS -->
+    <section class="how-section" id="how-it-works">
+
+        <div class="section-heading">
+            <div class="section-label">BEHIND THE TECHNOLOGY</div>
+
+            <h2>
+                How SPAMX <span class="gradient-text">works.</span>
+            </h2>
+
+            <p>Three steps. One intelligent prediction.</p>
+        </div>
+
+
+        <div class="steps">
+
+            <div class="step">
+                <span>01</span>
+                <h3>Input Message</h3>
+                <p>Enter the SMS you want to analyze.</p>
+            </div>
+
+            <div class="step">
+                <span>02</span>
+                <h3>Text Processing</h3>
+                <p>TF-IDF transforms the message into numerical features.</p>
+            </div>
+
+            <div class="step">
+                <span>03</span>
+                <h3>Prediction</h3>
+                <p>Naive Bayes classifies the message as Spam or Ham.</p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- CTA -->
+    <section class="cta-section">
+        <h2>Stay aware. Stay protected.</h2>
+        <p>Let machine learning help you identify unwanted messages.</p>
+
+        <a href="#detector" class="primary-button">
+            Start Analyzing <span>→</span>
+        </a>
+    </section>
+
+
+    <!-- FOOTER -->
+    <footer class="footer">
+
+        <div class="footer-main">
+
+            <div class="footer-brand">
+                <a href="#" class="logo">
+                    <span class="logo-icon">✳</span>
+                    SPAM<span>X</span>
+                </a>
+
+                <p>
+                    An intelligent SMS spam detection project
+                    powered by Machine Learning.
+                </p>
+            </div>
+
+
+            <div class="footer-links">
+                <h4>EXPLORE</h4>
+                <a href="#home">Home</a>
+                <a href="#detector">Detector</a>
+                <a href="#features">Features</a>
+                <a href="#how-it-works">Technology</a>
+            </div>
+
+
+            <div class="footer-links">
+                <h4>TECHNOLOGY</h4>
+                <span>Python</span>
+                <span>Flask</span>
+                <span>Scikit-learn</span>
+                <span>TF-IDF</span>
+            </div>
+
+        </div>
+
+
+        <div class="footer-bottom">
+            <p>© 2026 SPAMX. Built with intelligence.</p>
+            <p>Designed & Developed by <strong>Abhijit Dutta</strong></p>
+        </div>
+
+    </footer>
+
+
+    <script>
+        // Live character counter
+        const messageBox = document.getElementById("message");
+        const charCount = document.getElementById("charCount");
+
+        messageBox.addEventListener("input", function () {
+            charCount.textContent = this.value.length + " characters";
+        });
+
+        // Restore count after a prediction
+        charCount.textContent = messageBox.value.length + " characters";
+
+        // Reveal sections when scrolling
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("visible");
+                }
+            });
+        }, { threshold: 0.12 });
+
+        document.querySelectorAll(
+            ".section-heading, .feature-card, .step, .cta-section"
+        ).forEach(element => observer.observe(element));
+    </script>
+
+</body>
+</html>
