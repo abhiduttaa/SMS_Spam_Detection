@@ -13,7 +13,7 @@ SMS spam messages have become a common problem in digital communication. These m
 This project uses Machine Learning to analyze message content and predict whether a given message is spam or ham.
 
 The system follows a supervised learning approach. It learns patterns from a labeled dataset and uses those patterns to classify new, unseen messages.
-
+my project link : https://sms-spam-detection-kfzz.onrender.com
 ### 🎯 Project Objectives
 
 - Detect spam and legitimate SMS messages automatically.
